@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Beranda - KSP Maju Bersama</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                font-family: "Segoe UI", Arial, sans-serif;
+                font-size: 15px;
+                line-height: 1.65;
+                color: #1e2533;
+                background-color: #f3f5f9;
+            }
+
+            h1,
+            h2,
+            h3 {
+                margin: 0 0 12px 0;
+            }
+
+            h2 {
+                font-size: 26px;
+                color: #3a63a0;
+            }
+
+            h3 {
+                font-size: 17px;
+            }
+
+            p {
+                margin: 0 0 12px 0;
+            }
+
+            a {
+                color: #4a7bbf;
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+
+            a:hover {
+                color: #e08e00;
+            }
+
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 14px 6%;
+                background-color: #ffffff;
+                box-shadow: 0 2px 12px rgba(16, 24, 48, 0.08);
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 17px;
+                font-weight: 700;
+                color: #3a63a0;
+            }
+
+            .brand:hover {
+                color: #3a63a0;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                font-size: 16px;
+                font-weight: 800;
+                color: #3a63a0;
+                background-color: #f4b400;
+                border-radius: 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 6px;
+            }
+
+            nav a {
+                padding: 8px 14px;
+                font-weight: 600;
+                color: #3c4556;
+                border-radius: 8px;
+                transition: background-color 0.2s ease, color 0.2s ease;
+            }
+
+            nav a:hover {
+                color: #3a63a0;
+                background-color: #e8effc;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 10px 22px;
+                font-weight: 600;
+                color: #ffffff;
+                background-color: #4a7bbf;
+                border: 1px solid transparent;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(74, 123, 191, 0.25);
+                transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            }
+
+            .button:hover {
+                color: #ffffff;
+                background-color: #3a63a0;
+                box-shadow: 0 6px 14px rgba(74, 123, 191, 0.3);
+                transform: translateY(-2px);
+            }
+
+            nav a.button,
+            nav a.button:hover {
+                color: #ffffff;
+            }
+
+            nav a.button:hover {
+                background-color: #3a63a0;
+            }
+
+            .button-yellow,
+            .button-yellow:hover {
+                color: #3a63a0;
+            }
+
+            .button-yellow {
+                background-color: #f4b400;
+            }
+
+            .button-yellow:hover {
+                background-color: #ffc933;
+            }
+
+            .button-outline {
+                color: #ffffff;
+                background-color: transparent;
+                border-color: rgba(255, 255, 255, 0.7);
+                box-shadow: none;
+            }
+
+            .button-outline:hover {
+                color: #3a63a0;
+                background-color: #ffffff;
+            }
+
+            .hero {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 40px;
+                padding: 80px 6%;
+                color: #ffffff;
+                background: linear-gradient(120deg, #2f5286 0%, #3a63a0 50%, #4a7bbf 100%);
+            }
+
+            .hero-text {
+                flex: 1 1 420px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                max-width: 560px;
+                font-size: 17px;
+                color: rgba(255, 255, 255, 0.85);
+            }
+
+            .hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 24px;
+            }
+
+            .stats {
+                flex: 0 1 340px;
+                padding: 24px;
+                background-color: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                border-radius: 16px;
+            }
+
+            .stats div {
+                padding: 12px 0;
+                border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+            }
+
+            .stats div:last-child {
+                border-bottom: none;
+            }
+
+            .stats strong {
+                display: block;
+                font-size: 26px;
+            }
+
+            .stats span {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            section {
+                padding: 64px 6%;
+            }
+
+            .section-title {
+                max-width: 640px;
+                margin-bottom: 32px;
+                padding-bottom: 10px;
+                border-bottom: 2px dotted #cbd8f0;
+            }
+
+            .section-title p {
+                color: #6b7485;
+            }
+
+            .white {
+                background-color: #ffffff;
+            }
+
+            .service-group {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 20px;
+            }
+
+            .service {
+                padding: 24px;
+                background-color: #ffffff;
+                border: 4px double #c3d3f1;
+                border-radius: 14px;
+                transition: transform 0.25s ease, box-shadow 0.25s ease;
+            }
+
+            .service:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 4px 10px rgba(16, 24, 48, 0.08), 0 14px 30px rgba(16, 24, 48, 0.1);
+            }
+
+            .service .icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                margin-bottom: 14px;
+                font-size: 16px;
+                font-weight: 800;
+                color: #3a63a0;
+                background-color: #e8effc;
+                border-radius: 12px;
+            }
+
+            .service p {
+                color: #6b7485;
+            }
+
+            .steps {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .steps li {
+                padding: 20px;
+                background-color: #ffffff;
+                border: 2px dashed #bfd0f0;
+                border-radius: 14px;
+            }
+
+            .steps .number {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                margin-bottom: 10px;
+                line-height: 32px;
+                text-align: center;
+                font-weight: 700;
+                color: #ffffff;
+                background-color: #4a7bbf;
+                border-radius: 50%;
+            }
+
+            .about {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 28px;
+            }
+
+            .about .box {
+                padding: 22px 24px;
+                background-color: #f5f8fd;
+                border: 3px ridge #d4e0f5;
+                border-radius: 14px;
+            }
+
+            .about ol {
+                margin: 0;
+                padding-left: 20px;
+                line-height: 1.9;
+            }
+
+            .contact {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 20px;
+            }
+
+            .contact div {
+                padding: 20px 22px;
+                background-color: #ffffff;
+                border: 1px solid #e2e7ef;
+                border-left: 5px solid #4a7bbf;
+                border-radius: 12px;
+            }
+
+            .contact h3 {
+                color: #3a63a0;
+            }
+
+            .contact p {
+                margin: 0;
+                color: #3c4556;
+            }
+
+            .cta {
+                margin-top: 40px;
+                padding: 32px;
+                text-align: center;
+                color: #ffffff;
+                background: linear-gradient(120deg, #2f5286 0%, #4a7bbf 100%);
+                border-radius: 16px;
+            }
+
+            .cta h2 {
+                color: #ffffff;
+            }
+
+            .cta p {
+                color: rgba(255, 255, 255, 0.85);
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    padding: 12px 16px;
+                }
+
+                nav {
+                    justify-content: center;
+                }
+
+                .hero {
+                    padding: 48px 16px;
+                }
+
+                .hero h1 {
+                    font-size: 30px;
+                }
+
+                section {
+                    padding: 44px 16px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="index.html" class="brand">
+                <span class="logo">MB</span>
+                KSP Maju Bersama
+            </a>
+            <nav>
+                <a href="#beranda">Beranda</a>
+                <a href="#layanan">Layanan</a>
+                <a href="#cara-daftar">Cara Daftar</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#kontak">Kontak</a>
+                <a href="login.html" class="button">Masuk</a>
+            </nav>
+        </header>
+
+        <div class="hero" id="beranda">
+            <div class="hero-text">
+                <h1>Koperasi Simpan Pinjam "Maju Bersama"</h1>
+                <p>Menabung dan meminjam jadi lebih mudah bersama koperasi warga Pondok Labu. Bunga ringan, pelayanan ramah, dan dikelola secara terbuka oleh anggota.</p>
+                <div class="hero-actions">
+                    <a href="login.html" class="button button-yellow">Masuk ke Sistem</a>
+                    <a href="#layanan" class="button button-outline">Lihat Layanan</a>
+                </div>
+            </div>
+            <div class="stats">
+                <div>
+                    <strong>128</strong>
+                    <span>Anggota terdaftar</span>
+                </div>
+                <div>
+                    <strong>Sejak 2020</strong>
+                    <span>Melayani warga Pondok Labu</span>
+                </div>
+                <div>
+                    <strong>1% / bulan</strong>
+                    <span>Bunga pinjaman flat</span>
+                </div>
+            </div>
+        </div>
+
+        <section id="layanan" class="white">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+                <p>Layanan utama yang bisa digunakan oleh setiap anggota koperasi.</p>
+            </div>
+            <div class="service-group">
+                <div class="service">
+                    <div class="icon">S</div>
+                    <h3>Simpanan</h3>
+                    <p>Simpanan pokok Rp 100.000, simpanan wajib Rp 50.000 per bulan, dan simpanan sukarela yang bisa ditarik kapan saja.</p>
+                </div>
+                <div class="service">
+                    <div class="icon">P</div>
+                    <h3>Pinjaman</h3>
+                    <p>Pinjaman untuk modal usaha, pendidikan, atau kebutuhan lain dengan tenor 6, 12, atau 24 bulan.</p>
+                </div>
+                <div class="service">
+                    <div class="icon">A</div>
+                    <h3>Angsuran</h3>
+                    <p>Jadwal angsuran yang jelas setiap bulan sehingga anggota mudah memantau sisa pinjaman.</p>
+                </div>
+                <div class="service">
+                    <div class="icon">SHU</div>
+                    <h3>Sisa Hasil Usaha</h3>
+                    <p>Keuntungan koperasi dibagikan kembali kepada anggota setiap akhir tahun melalui RAT.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cara-daftar">
+            <div class="section-title">
+                <h2>Cara Menjadi Anggota</h2>
+                <p>Syaratnya mudah, cukup warga sekitar yang memiliki KTP.</p>
+            </div>
+            <ol class="steps">
+                <li>
+                    <span class="number">1</span>
+                    <h3>Datang ke Kantor</h3>
+                    <p>Kunjungi kantor koperasi dengan membawa fotokopi KTP.</p>
+                </li>
+                <li>
+                    <span class="number">2</span>
+                    <h3>Isi Formulir</h3>
+                    <p>Isi formulir pendaftaran anggota yang disediakan petugas.</p>
+                </li>
+                <li>
+                    <span class="number">3</span>
+                    <h3>Bayar Simpanan Pokok</h3>
+                    <p>Bayar simpanan pokok sebesar Rp 100.000 satu kali.</p>
+                </li>
+                <li>
+                    <span class="number">4</span>
+                    <h3>Resmi Jadi Anggota</h3>
+                    <p>Mulai menabung dan dapat mengajukan pinjaman.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section id="tentang" class="white">
+            <div class="section-title">
+                <h2>Tentang Koperasi</h2>
+                <p>Didirikan pada 12 Januari 2020 oleh 25 orang warga Pondok Labu.</p>
+            </div>
+            <div class="about">
+                <div class="box">
+                    <h3>Visi</h3>
+                    <p>Menjadi koperasi simpan pinjam yang sehat, mandiri, dan terpercaya dalam meningkatkan kesejahteraan anggota.</p>
+                </div>
+                <div class="box">
+                    <h3>Misi</h3>
+                    <ol>
+                        <li>Memberikan pelayanan simpan pinjam yang mudah dan transparan.</li>
+                        <li>Menyediakan pinjaman dengan bunga ringan bagi anggota.</li>
+                        <li>Mengelola keuangan koperasi secara jujur dan profesional.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak">
+            <div class="section-title">
+                <h2>Kontak</h2>
+                <p>Silakan datang langsung atau hubungi kami.</p>
+            </div>
+            <div class="contact">
+                <div>
+                    <h3>Alamat</h3>
+                    <p>Jl. Pinang IV No. 200, RT 003/RW 002<br />Kel. Pondok Labu, Kec. Cilandak<br />Jakarta Selatan 12450</p>
+                </div>
+                <div>
+                    <h3>Telepon</h3>
+                    <p>(021) 7590-4231<br />WhatsApp: 0812-2000-4567</p>
+                </div>
+                <div>
+                    <h3>Jam Layanan</h3>
+                    <p>Senin - Jumat<br />08.00 - 15.00 WIB</p>
+                </div>
+            </div>
+
+            <div class="cta">
+                <h2>Sudah menjadi anggota?</h2>
+                <p>Masuk ke sistem untuk melihat simpanan, pinjaman, dan angsuran.</p>
+                <a href="login.html" class="button button-yellow">Masuk Sekarang</a>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tentang Koperasi - KSP Maju Bersama</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                font-family: "Segoe UI", Arial, sans-serif;
+                font-size: 15px;
+                line-height: 1.65;
+                color: #1e2533;
+                background-color: #f3f5f9;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 21px;
+                font-weight: 700;
+                letter-spacing: 0.2px;
+            }
+
+            h2 {
+                margin: 0 0 18px 0;
+                padding-bottom: 10px;
+                font-size: 24px;
+                font-weight: 700;
+                color: #3a63a0;
+                border-bottom: 2px dotted #bfd0f0;
+            }
+
+            h3 {
+                margin: 0 0 12px 0;
+                font-size: 17px;
+                font-weight: 650;
+                color: #1e2533;
+            }
+
+            p {
+                margin: 0 0 12px 0;
+            }
+
+            a {
+                color: #4a7bbf;
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+
+            a:hover {
+                color: #e08e00;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding: 16px 28px;
+                color: #ffffff;
+                background: linear-gradient(120deg, #2f5286 0%, #3a63a0 45%, #4a7bbf 100%);
+                box-shadow: 0 2px 12px rgba(16, 24, 48, 0.18);
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 46px;
+                font-size: 17px;
+                font-weight: 800;
+                color: #3a63a0;
+                background-color: #f4b400;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+            }
+
+            header p {
+                margin: 0;
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.75);
+            }
+
+            .wrapper {
+                display: flex;
+                min-height: calc(100vh - 78px);
+            }
+
+            nav {
+                flex: 0 0 22%;
+                padding: 26px 16px;
+                background: linear-gradient(180deg, #3a63a0 0%, #2f5286 100%);
+                box-shadow: 4px 0 18px rgba(16, 24, 48, 0.08);
+            }
+
+            nav p {
+                margin: 0 12px 10px 12px;
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 1.2px;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.55);
+            }
+
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav li {
+                margin-bottom: 4px;
+            }
+
+            nav a {
+                display: block;
+                padding: 10px 14px;
+                color: rgba(255, 255, 255, 0.88);
+                border-radius: 10px;
+                transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+            }
+
+            nav a:hover {
+                color: #ffffff;
+                background-color: rgba(255, 255, 255, 0.12);
+                transform: translateX(4px);
+            }
+
+            nav a.active {
+                font-weight: 600;
+                color: #3a63a0;
+                background-color: #ffffff;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            main {
+                flex: 1;
+                min-width: 0;
+                margin: 26px 30px;
+                padding: 28px 32px;
+                background-color: #ffffff;
+                border-radius: 14px;
+                box-shadow: 0 1px 2px rgba(16, 24, 48, 0.04), 0 6px 18px rgba(16, 24, 48, 0.06);
+            }
+
+            section {
+                margin-bottom: 30px;
+            }
+
+            hr {
+                margin: 28px 0;
+                border: none;
+                border-top: 2px dotted #cbd8f0;
+            }
+
+            .table-wrap {
+                overflow-x: auto;
+                border: 1px solid #e2e7ef;
+                border-radius: 12px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                padding: 11px 14px;
+                text-align: left;
+                vertical-align: middle;
+                border-bottom: 1px solid #e2e7ef;
+            }
+
+            th {
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #3a63a0;
+                background-color: #e8effc;
+                border-bottom: 2px solid #c5d4f2;
+            }
+
+            tbody tr {
+                transition: background-color 0.2s ease;
+            }
+
+            tbody tr:nth-child(even) {
+                background-color: #fafbfd;
+            }
+
+            tbody tr:hover {
+                background-color: #eef3fc;
+            }
+
+            tfoot td {
+                font-weight: 700;
+                color: #3a63a0;
+                background-color: #e8effc;
+                border-top: 3px double #93acdf;
+                border-bottom: none;
+            }
+
+            td.number,
+            th.number {
+                text-align: right;
+            }
+
+            .status {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 3px 11px;
+                font-size: 12px;
+                font-weight: 600;
+                border-radius: 999px;
+            }
+
+            .status::before {
+                content: "";
+                width: 6px;
+                height: 6px;
+                background-color: currentColor;
+                border-radius: 50%;
+            }
+
+            .green {
+                color: #1e7a34;
+                background-color: #e3f4e7;
+            }
+
+            .orange {
+                color: #b85c00;
+                background-color: #fff1df;
+            }
+
+            .red {
+                color: #c62828;
+                background-color: #fdeaea;
+            }
+
+            form {
+                margin: 0;
+            }
+
+            fieldset {
+                margin: 0 0 18px 0;
+                padding: 18px 22px 8px 22px;
+                border: 3px groove #d9e3f5;
+                border-radius: 12px;
+            }
+
+            legend {
+                padding: 3px 12px;
+                font-size: 13px;
+                font-weight: 700;
+                color: #3a63a0;
+                background-color: #e8effc;
+                border-radius: 999px;
+            }
+
+            .form-row {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 14px;
+            }
+
+            .form-row .label {
+                flex: 0 0 180px;
+                padding-top: 9px;
+                font-size: 14px;
+                font-weight: 600;
+                color: #3c4556;
+            }
+
+            input,
+            select,
+            textarea {
+                padding: 9px 12px;
+                font-family: inherit;
+                font-size: 14px;
+                color: #1e2533;
+                background-color: #fbfcfe;
+                border: 1px solid #d3dae6;
+                border-radius: 8px;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            }
+
+            .form-row input[type="text"],
+            .form-row input[type="number"],
+            .form-row input[type="date"],
+            .form-row input[type="password"],
+            .form-row select,
+            .form-row textarea {
+                width: 340px;
+                max-width: 100%;
+            }
+
+            input:hover,
+            select:hover,
+            textarea:hover {
+                border-color: #a9bde3;
+            }
+
+            input:focus,
+            select:focus,
+            textarea:focus {
+                outline: none;
+                border-color: #4a7bbf;
+                background-color: #ffffff;
+                box-shadow: 0 0 0 4px rgba(74, 123, 191, 0.15);
+            }
+
+            input[type="radio"] {
+                accent-color: #4a7bbf;
+            }
+
+            .options {
+                padding-top: 8px;
+            }
+
+            .options label {
+                margin-right: 18px;
+                cursor: pointer;
+            }
+
+            button,
+            .button {
+                display: inline-block;
+                padding: 9px 20px;
+                font-family: inherit;
+                font-size: 14px;
+                font-weight: 600;
+                color: #ffffff;
+                background-color: #4a7bbf;
+                border: 1px solid transparent;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(74, 123, 191, 0.25);
+                cursor: pointer;
+                transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            }
+
+            button:hover,
+            .button:hover {
+                color: #ffffff;
+                background-color: #3a63a0;
+                box-shadow: 0 6px 14px rgba(74, 123, 191, 0.3);
+                transform: translateY(-2px);
+            }
+
+            button:active,
+            .button:active {
+                transform: translateY(0);
+            }
+
+            .button-gray {
+                color: #3c4556;
+                background-color: #ffffff;
+                border-color: #d3dae6;
+                box-shadow: none;
+            }
+
+            .button-gray:hover {
+                color: #1e2533;
+                background-color: #f1f4f9;
+                box-shadow: 0 4px 10px rgba(16, 24, 48, 0.08);
+            }
+
+            .button-small {
+                padding: 5px 12px;
+                font-size: 12px;
+                box-shadow: none;
+            }
+
+            .button-delete {
+                color: #c62828;
+                background-color: #fdeaea;
+            }
+
+            .button-delete:hover {
+                color: #ffffff;
+                background-color: #c62828;
+                box-shadow: 0 4px 10px rgba(198, 40, 40, 0.3);
+            }
+
+            .form-actions {
+                display: flex;
+                gap: 10px;
+                margin-left: 180px;
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    padding: 14px 16px;
+                }
+
+                .wrapper {
+                    flex-direction: column;
+                }
+
+                nav {
+                    padding: 16px 12px;
+                }
+
+                main {
+                    margin: 12px;
+                    padding: 20px 16px;
+                }
+
+                .form-row {
+                    flex-direction: column;
+                }
+
+                .form-row .label {
+                    flex-basis: auto;
+                    padding-bottom: 4px;
+                }
+
+                .form-actions {
+                    margin-left: 0;
+                }
+            }
+
+            .vision-mission {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 16px;
+                margin-bottom: 30px;
+            }
+
+            .vision-mission div {
+                padding: 18px 22px;
+                background-color: #f5f8fd;
+                border: 3px ridge #d4e0f5;
+                border-radius: 14px;
+            }
+
+            .vision-mission ol {
+                margin: 0;
+                padding-left: 20px;
+                line-height: 1.9;
+            }
+
+            address {
+                font-style: normal;
+                line-height: 1.95;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">MB</div>
+            <div>
+                <h1>Koperasi Simpan Pinjam "Maju Bersama"</h1>
+                <p>Jl. Pinang IV No. 200, Pondok Labu, Jakarta Selatan</p>
+            </div>
+        </header>
+
+        <div class="wrapper">
+
+            <nav>
+                <p>Menu Utama</p>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="anggota.html">Data Anggota</a></li>
+                    <li><a href="form-anggota.html">Pendaftaran Anggota</a></li>
+                    <li><a href="simpanan.html">Simpanan</a></li>
+                    <li><a href="pinjaman.html">Pinjaman</a></li>
+                    <li><a href="angsuran.html">Angsuran</a></li>
+                    <li><a href="laporan.html">Laporan</a></li>
+                    <li><a href="tentang.html" class="active">Tentang Koperasi</a></li>
+                    <li><a href="index.html">Keluar</a></li>
+                </ul>
+            </nav>
+
+            <main>
+                <h2>Tentang Koperasi</h2>
+
+                <section>
+                    <h3>Profil Singkat</h3>
+                    <p>Koperasi Simpan Pinjam "Maju Bersama" didirikan pada tanggal 12 Januari 2020 di Pondok Labu, Jakarta Selatan oleh 25 orang warga sekitar yang ingin saling membantu dalam hal keuangan.</p>
+                    <p>Saat ini koperasi memiliki 128 anggota dengan layanan utama berupa simpanan pokok, simpanan wajib, simpanan sukarela, serta pinjaman dengan bunga ringan untuk kebutuhan produktif maupun konsumtif.</p>
+                </section>
+
+                <div class="vision-mission">
+                    <div>
+                        <h3>Visi</h3>
+                        <p>Menjadi koperasi simpan pinjam yang sehat, mandiri, dan terpercaya dalam meningkatkan kesejahteraan anggota.</p>
+                    </div>
+                    <div>
+                        <h3>Misi</h3>
+                        <ol>
+                            <li>Memberikan pelayanan simpan pinjam yang mudah dan transparan.</li>
+                            <li>Menyediakan pinjaman dengan bunga ringan bagi anggota.</li>
+                            <li>Mengelola keuangan koperasi secara jujur dan profesional.</li>
+                            <li>Meningkatkan partisipasi dan kesadaran berkoperasi.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <section>
+                    <h3>Susunan Pengurus</h3>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Jabatan</th>
+                                    <th>Nama</th>
+                                    <th>Periode</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Ketua</td>
+                                    <td>Drs. H. Bambang Sutrisno</td>
+                                    <td>2024 - 2027</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Wakil Ketua</td>
+                                    <td>Ir. Wahyu Hidayat</td>
+                                    <td>2024 - 2027</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Sekretaris</td>
+                                    <td>Nur Aisyah, S.E.</td>
+                                    <td>2024 - 2027</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Bendahara</td>
+                                    <td>Lina Marlina, S.Ak.</td>
+                                    <td>2024 - 2027</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Pengawas I</td>
+                                    <td>H. Ahmad Fauzi</td>
+                                    <td>2024 - 2027</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Pengawas II</td>
+                                    <td>Sri Wahyuni, S.H.</td>
+                                    <td>2024 - 2027</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <hr />
+
+                <section>
+                    <h3>Kontak dan Alamat</h3>
+                    <address>
+                        Kantor KSP "Maju Bersama"<br />
+                        Jl. Pinang IV No. 200, RT 003/RW 002<br />
+                        Kel. Pondok Labu, Kec. Cilandak, Jakarta Selatan 12450<br />
+                        Telepon: (021) 7590-4231<br />
+                        WhatsApp: 0812-2000-4567<br />
+                        Email: kspmajubersama@gmail.com<br />
+                        Jam Layanan: Senin - Jumat, 08.00 - 15.00 WIB
+                    </address>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
